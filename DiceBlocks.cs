@@ -2,6 +2,7 @@
 {
     internal class DiceBlocks
     {
+        //Blöcke zur Darstellung der verschiedenen Teile eines Würfels
         private string Block1 = ".-------.";
         private string Block2 = "|       |";
         private string Block3 = "|     O |";

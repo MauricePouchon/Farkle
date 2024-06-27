@@ -9,6 +9,7 @@
         private Calculator calculator = new Calculator();
 
         string Space = "  "; //Space between the dice
+        public int round = 1;
         public int totalScore = 0;
         public int roundScore = 0;
         public int selectedScore = 0;
@@ -45,6 +46,7 @@
             int counter = 0;
 
             Console.Clear();
+            Console.WriteLine("Round: " + round);
             Console.WriteLine("Total Score: " + totalScore);
             Console.WriteLine("Round Score: " + roundScore);
             Console.WriteLine("Selected: " + selectedScore + "\n");
@@ -243,12 +245,14 @@
             }
             else
             {
-                hint = "Invalid argument, please proceed to die";
+                hint = "You need to select at least one dice to be able to reroll!";
             }
         }
 
         public void ResetDice()
         {
+            dice.Clear();
+
             Dice dice1 = new Dice();
             Dice dice2 = new Dice();
             Dice dice3 = new Dice();
@@ -266,8 +270,12 @@
 
         public void EndTurn()
         {
+            roundScore += selectedScore;
             totalScore += roundScore;
+            selectedScore = 0;
             roundScore = 0;
+            round++;
+            ResetDice();
             RerollDice();
         }
     }

@@ -19,6 +19,7 @@
             return value;
         }
 
+        //Ändert den Status und die Farbe des Würfels bei Auswahl
         public void SwitchSelect()
         {
             if (isSelected)
